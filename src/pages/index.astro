@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HoursList from '../components/HoursList.astro';
+---
+
+<BaseLayout
+  title="Ember & Oak Coffee | Neighborhood Café in Portland"
+  description="Small-batch espresso, loose-leaf tea, and pastries baked every morning. Ember & Oak is the neighborhood café on Linden Street in Portland."
+>
+  <section class="mx-auto max-w-2xl px-4 py-8 text-center">
+    <p class="text-lg leading-relaxed text-oak">
+      Slow-roasted coffee, warm pastries out of the oven by seven, and a seat by the window
+      with your name on it. Come in for a cortado, stay for the conversation.
+    </p>
+  </section>
+
+  <section aria-labelledby="hours-heading" class="mx-auto max-w-2xl px-4 py-8">
+    <h2 id="hours-heading" class="mb-4 text-center font-serif text-2xl font-bold">Opening Hours</h2>
+    <HoursList />
+  </section>
+</BaseLayout>

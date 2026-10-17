@@ -1,0 +1,38 @@
+---
+import { business } from '../data/business';
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/menu', label: 'Menu' },
+  { href: '/about', label: 'About' },
+  { href: '/visit', label: 'Visit' },
+  { href: '/contact', label: 'Contact' },
+];
+
+// "/menu/" and "/menu" should both count as the Menu page.
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="bg-cream px-4 pt-10 pb-6 text-center">
+  <a href="/" class="font-serif text-4xl font-bold tracking-tight text-espresso sm:text-5xl">
+    {business.name}
+  </a>
+
+  <nav aria-label="Main" class="mt-6">
+    <ul class="flex flex-wrap justify-center gap-2">
+      {
+        links.map(({ href, label }) => (
+          <li>
+            <a
+              href={href}
+              aria-current={current === href ? 'page' : undefined}
+              class="inline-block rounded-full px-4 py-2.5 font-medium text-espresso hover:bg-latte/40 aria-[current=page]:bg-espresso aria-[current=page]:text-cream"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

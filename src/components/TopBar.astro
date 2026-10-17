@@ -1,0 +1,37 @@
+---
+import { business } from '../data/business';
+import { fullAddress, mapsUrl } from '../lib/format';
+---
+
+<div
+  id="top-bar"
+  class="sticky top-0 z-50 bg-espresso text-cream text-sm transition-transform duration-300 motion-reduce:transition-none"
+>
+  <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-6 gap-y-1 px-4 py-2">
+    <a href={mapsUrl()} class="underline-offset-4 hover:underline" target="_blank" rel="noopener">
+      {fullAddress()}
+    </a>
+    <a href={`tel:${business.phone.tel}`} class="font-semibold underline-offset-4 hover:underline">
+      {business.phone.display}
+    </a>
+  </div>
+</div>
+
+<script>
+  // Hide the top bar when scrolling down, bring it back when scrolling up.
+  const bar = document.getElementById('top-bar');
+  let lastY = window.scrollY;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!bar) return;
+      const y = window.scrollY;
+      const scrollingDown = y > lastY;
+      // Only hide once we've scrolled past the bar's own height.
+      bar.classList.toggle('-translate-y-full', scrollingDown && y > bar.offsetHeight);
+      lastY = y;
+    },
+    { passive: true },
+  );
+</script>

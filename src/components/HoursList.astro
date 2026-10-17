@@ -1,0 +1,17 @@
+---
+import { business } from '../data/business';
+import { formatTime } from '../lib/format';
+---
+
+<dl class="mx-auto max-w-sm divide-y divide-oak/20">
+  {
+    business.hours.map(({ day, opens, closes }) => (
+      <div class="flex justify-between py-2">
+        <dt class="font-medium">{day}</dt>
+        <dd class="text-oak">
+          {opens && closes ? `${formatTime(opens)} – ${formatTime(closes)}` : 'Closed'}
+        </dd>
+      </div>
+    ))
+  }
+</dl>

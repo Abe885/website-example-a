@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Ember & Oak color palette. Every text/background pair used on the site
+   meets WCAG AA contrast (4.5:1 or better). */
+@theme {
+  --color-cream: #faf6f0;
+  --color-espresso: #2b1d14;
+  --color-ember: #9a3f1c;
+  --color-oak: #6b5240;
+  --color-latte: #e8b98f;
+}

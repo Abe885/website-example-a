@@ -1,0 +1,20 @@
+---
+import { business } from '../data/business';
+import { fullAddress, mapsUrl } from '../lib/format';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-16 bg-espresso px-4 py-10 text-cream">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-3 text-center text-sm">
+    <p class="font-serif text-xl font-bold">{business.name}</p>
+    <a href={mapsUrl()} class="underline-offset-4 hover:underline" target="_blank" rel="noopener">
+      {fullAddress()}
+    </a>
+    <a href={`tel:${business.phone.tel}`} class="underline-offset-4 hover:underline">
+      {business.phone.display}
+    </a>
+    <a href="/contact" class="font-semibold text-latte underline-offset-4 hover:underline">Contact us</a>
+    <p class="mt-4 text-cream/80">&copy; {year} {business.name}</p>
+  </div>
+</footer>
