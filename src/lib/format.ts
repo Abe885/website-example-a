@@ -9,6 +9,12 @@ export function formatTime(time: string): string {
   return `${hour12}:${minutes} ${period}`;
 }
 
+/** 4.5 -> "$4.50", 0 -> "Free" */
+export function formatPrice(price: number): string {
+  if (price === 0) return 'Free';
+  return `$${price.toFixed(2)}`;
+}
+
 /** One line of the address, e.g. "418 Linden Street, Portland, OR 97214" */
 export function fullAddress(): string {
   const { street, city, region, postalCode } = business.address;
